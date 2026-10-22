@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>308 Brass Rail | Great Food, Cold Drinks & Live Shows</title>
+  <style>
+    :root {
+      --amber: #FFB000;
+      --amber-glow: #FF8C00;
+      --bg-dark: #0B0D10;
+      --card-bg: #14181F;
+      --card-border: #232A36;
+      --text: #F1F5F9;
+      --text-muted: #94A3B8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: var(--bg-dark); color: var(--text); line-height: 1.6; }
+
+    /* Top Bar */
+    .top-bar {
+      background: #050608;
+      border-bottom: 1px solid var(--card-border);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+    .top-bar .info { color: var(--amber); font-weight: 700; display: flex; gap: 15px; }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 80vh;
+      background: linear-gradient(180deg, rgba(11,13,16,0.5) 0%, rgba(11,13,16,0.98) 100%),
+                  url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat fixed;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .badge {
+      background: rgba(255, 176, 0, 0.15);
+      border: 1px solid var(--amber);
+      color: var(--amber);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 { font-size: 3.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 12px; }
+    .hero h1 span { color: var(--amber); text-shadow: 0 0 20px rgba(255, 176, 0, 0.4); }
+    .hero p { font-size: 1.15rem; color: var(--text-muted); max-width: 550px; margin-bottom: 28px; }
+
+    .btn-group { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--amber), var(--amber-glow));
+      color: #000;
+      font-weight: 800;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 8px 20px rgba(255, 176, 0, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: #fff;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    /* Sections */
+    .section { padding: 60px 20px; max-width: 900px; margin: 0 auto; }
+    .section-title { font-size: 2rem; font-weight: 800; text-align: center; margin-bottom: 8px; }
+    .section-sub { text-align: center; color: var(--text-muted); margin-bottom: 36px; }
+
+    /* Interactive Menu Tabs */
+    .menu-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .tab-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn.active { background: var(--amber); color: #000; border-color: var(--amber); }
+
+    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+    .menu-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .menu-item h4 { font-size: 1.1rem; color: #fff; }
+    .menu-item p { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+    .price { color: var(--amber); font-weight: 800; font-size: 1.1rem; }
+
+    /* Events Card */
+    .event-card {
+      background: linear-gradient(135deg, rgba(20,24,31,1) 0%, rgba(35,42,54,0.5) 100%);
+      border: 1px solid var(--amber);
+      border-radius: 16px;
+      padding: 28px;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .event-date { color: var(--amber); font-weight: 800; text-transform: uppercase; font-size: 0.9rem; }
+    .event-title { font-size: 1.6rem; font-weight: 800; margin: 8px 0; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="info">
+      <span>📍 308 W Michigan Ave, Jackson, MI</span>
+      <span>📞 (517) 782-3414</span>
+    </div>
+    <div style="color: var(--text-muted);">Open Daily • Carry-Out Available</div>
+  </div>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="badge">🔥 Jackson's Favorite Neighborhood Pub</div>
+    <h1>GREAT FOOD. COLD BEER.<br><span>UNFORGETTABLE SHOWS.</span></h1>
+    <p>Dinner, drinks, daily carry-out specials, and live entertainment nearly every weekend at 308 Brass Rail.</p>
+    <div class="btn-group">
+      <a href="tel:5177823414" class="btn-primary">📞 Call to Order (517) 782-3414</a>
+      <button class="btn-secondary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Explore Food & Drinks ↓</button>
+    </div>
+  </header>
+
+  <!-- Live Events Section -->
+  <section class="section">
+    <h2 class="section-title">Upcoming Live Entertainment</h2>
+    <p class="section-sub">Live bands, comedy, ladies night & burlesque shows every weekend!</p>
+
+    <div class="event-card">
+      <div class="event-date">⚡ THIS FRIDAY & SATURDAY @ 9:00 PM</div>
+      <div class="event-title">Live Rock & Classic Pub Music</div>
+      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 16px;">Grab a cold draft beer and enjoy great local talent live on stage at the Brass Rail.</p>
+      <a href="https://facebook.com" target="_blank" class="btn-primary" style="display:inline-block; font-size:0.9rem; padding: 10px 20px;">Check Event Details on Facebook →</a>
+    </div>
+  </section>
+
+  <!-- Interactive Menu Section -->
+  <section class="section" id="menu">
+    <h2 class="section-title">Pub Favorites & Daily Specials</h2>
+    <p class="section-sub">Freshly prepared carry-out and dine-in pub classics.</p>
+
+    <div class="menu-tabs">
+      <button class="tab-btn active" onclick="showCategory('pub-grub')">🍔 Pub Grub</button>
+      <button class="tab-btn" onclick="showCategory('drafts')">🍺 Beer & Drinks</button>
+      <button class="tab-btn" onclick="showCategory('specials')">🔥 Daily Specials</button>
+    </div>
+
+    <!-- PUB GRUB -->
+    <div class="menu-grid" id="pub-grub">
+      <div class="menu-item">
+        <div>
+          <h4>Brass Rail Deluxe Burger</h4>
+          <p>Hand-crafted beef patty, sharp cheddar, fresh lettuce & house sauce.</p>
+        </div>
+        <div class="price">$11.99</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h4>Loaded Pub Wings</h4>
+          <p>Jumbo bone-in wings tossed in Buffalo, Honey BBQ, or Garlic Parmesan.</p>
+        </div>
+        <div class="price">$13.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h4>Beer-Battered Basket</h4>
+          <p>Golden fried mozzarella sticks, onion rings, and pub fries.</p>
+        </div>
+        <div class="price">$9.99</div>
+      </div>
+    </div>
+
+    <!-- BEER & DRINKS -->
+    <div class="menu-grid" id="drafts" style="display:none;">
+      <div class="menu-item">
+        <div>
+          <h4>Local & Domestic Draft Pint</h4>
+          <p>Ice-cold rotating local Michigan craft & domestic drafts.</p>
+        </div>
+        <div class="price">$4.50</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <h4>Brass Rail Signature Cocktails</h4>
+          <p>Hand-poured mixed cocktails, long islands, and shots.</p>
+        </div>
+        <div class="price">$7.00</div>
+      </div>
+    </div>
+
+    <!-- DAILY SPECIALS -->
+    <div class="menu-grid" id="specials" style="display:none;">
+      <div class="menu-item">
+        <div>
+          <h4>Weekend Carry-Out Combo</h4>
+          <p>Deluxe Burger + Fries + Pint/Beverage combo deal.</p>
+        </div>
+        <div class="price">$14.99</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function showCategory(catId) {
+      document.querySelectorAll('.menu-grid').forEach(g => g.style.display = 'none');
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      
+      document.getElementById(catId).style.display = 'grid';
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
