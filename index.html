@@ -27,14 +27,16 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.85rem;
+      flex-wrap: wrap;
+      gap: 10px;
     }
-    .top-bar .info { color: var(--amber); font-weight: 700; display: flex; gap: 15px; }
+    .top-bar .info { color: var(--amber); font-weight: 700; display: flex; gap: 15px; flex-wrap: wrap; }
 
     /* Hero Section */
     .hero {
       position: relative;
-      height: 80vh;
-      background: linear-gradient(180deg, rgba(11,13,16,0.5) 0%, rgba(11,13,16,0.98) 100%),
+      height: 85vh;
+      background: linear-gradient(180deg, rgba(11,13,16,0.6) 0%, rgba(11,13,16,0.98) 100%),
                   url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat fixed;
       display: flex;
       flex-direction: column;
@@ -72,7 +74,9 @@
       box-shadow: 0 8px 20px rgba(255, 176, 0, 0.3);
       border: none;
       cursor: pointer;
+      transition: transform 0.2s ease;
     }
+    .btn-primary:hover { transform: translateY(-2px); }
     .btn-secondary {
       background: transparent;
       border: 1px solid var(--card-border);
@@ -117,17 +121,33 @@
     .menu-item p { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
     .price { color: var(--amber); font-weight: 800; font-size: 1.1rem; }
 
-    /* Events Card */
-    .event-card {
-      background: linear-gradient(135deg, rgba(20,24,31,1) 0%, rgba(35,42,54,0.5) 100%);
-      border: 1px solid var(--amber);
+    /* Events & VIP Section */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media(max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+    .card-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
       border-radius: 16px;
       padding: 28px;
-      text-align: center;
-      margin-top: 20px;
     }
-    .event-date { color: var(--amber); font-weight: 800; text-transform: uppercase; font-size: 0.9rem; }
-    .event-title { font-size: 1.6rem; font-weight: 800; margin: 8px 0; }
+    .card-box h3 { font-size: 1.4rem; margin-bottom: 12px; color: var(--amber); }
+
+    input, textarea, select {
+      width: 100%;
+      background: #0B0D10;
+      border: 1px solid var(--card-border);
+      color: white;
+      padding: 12px;
+      border-radius: 8px;
+      margin-top: 8px;
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+    }
+
+    /* FAQ / Hall of Fame Accordion */
+    .faq-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 16px; margin-bottom: 10px; cursor: pointer; font-weight: 700; }
+    .faq-ans { font-weight: 400; color: var(--text-muted); font-size: 0.9rem; margin-top: 8px; display: none; }
   </style>
 </head>
 <body>
@@ -138,37 +158,54 @@
       <span>📍 308 W Michigan Ave, Jackson, MI</span>
       <span>📞 (517) 782-3414</span>
     </div>
-    <div style="color: var(--text-muted);">Open Daily • Carry-Out Available</div>
+    <div style="color: var(--text-muted);">Open Daily • Carry-Out & Nightlife Hub</div>
   </div>
 
   <!-- Hero Section -->
   <header class="hero">
-    <div class="badge">🔥 Jackson's Favorite Neighborhood Pub</div>
+    <div class="badge">🔥 Jackson's Premier Pub & Live Show Venue</div>
     <h1>GREAT FOOD. COLD BEER.<br><span>UNFORGETTABLE SHOWS.</span></h1>
-    <p>Dinner, drinks, daily carry-out specials, and live entertainment nearly every weekend at 308 Brass Rail.</p>
+    <p>Dinner, drinks, daily carry-out specials, and live entertainment nearly every weekend[cite: 1]. Experience Jackson’s favorite neighborhood destination.</p>
     <div class="btn-group">
       <a href="tel:5177823414" class="btn-primary">📞 Call to Order (517) 782-3414</a>
-      <button class="btn-secondary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Explore Food & Drinks ↓</button>
+      <button class="btn-secondary" onclick="document.getElementById('menu').scrollIntoView({behavior:'smooth'})">Explore Food & Menu ↓</button>
     </div>
   </header>
 
-  <!-- Live Events Section -->
+  <!-- Events & VIP Booth Booking Section -->
   <section class="section">
-    <h2 class="section-title">Upcoming Live Entertainment</h2>
-    <p class="section-sub">Live bands, comedy, ladies night & burlesque shows every weekend!</p>
+    <h2 class="section-title">Nightlife & Weekend Shows</h2>
+    <p class="section-sub">Live bands, comedy, ladies night & burlesque shows every weekend[cite: 1].</p>
 
-    <div class="event-card">
-      <div class="event-date">⚡ THIS FRIDAY & SATURDAY @ 9:00 PM</div>
-      <div class="event-title">Live Rock & Classic Pub Music</div>
-      <p style="color: var(--text-muted); max-width: 500px; margin: 0 auto 16px;">Grab a cold draft beer and enjoy great local talent live on stage at the Brass Rail.</p>
-      <a href="https://facebook.com" target="_blank" class="btn-primary" style="display:inline-block; font-size:0.9rem; padding: 10px 20px;">Check Event Details on Facebook →</a>
+    <div class="grid-2">
+      <!-- Upcoming Show Highlight -->
+      <div class="card-box" style="border-color: var(--amber);">
+        <div style="color: var(--amber); font-weight: 800; font-size: 0.85rem; margin-bottom: 6px;">⚡ THIS WEEKEND LINEUP</div>
+        <h3 style="color: #fff; font-size: 1.6rem; margin-bottom: 8px;">Live Music & Stage Shows</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 20px;">Join us Friday and Saturday nights for great pub food, cold drinks, and top-tier entertainment[cite: 1].</p>
+        <a href="https://facebook.com" target="_blank" class="btn-primary" style="display:inline-block; text-align:center;">View Full Schedule on Facebook →</a>
+      </div>
+
+      <!-- Quick VIP Table / Booth Request Form -->
+      <div class="card-box">
+        <h3>Reserve a Table / VIP Inquiry</h3>
+        <input type="text" id="v_name" placeholder="Your Name">
+        <input type="tel" id="v_phone" placeholder="Phone Number">
+        <select id="v_date">
+          <option>Select Weekend Date</option>
+          <option>This Friday Night</option>
+          <option>This Saturday Night</option>
+          <option>Other / Regular Dining</option>
+        </select>
+        <button class="btn-primary" style="width:100%;" onclick="alert('🎉 Request sent! The Brass Rail team will call or text to confirm your table.')">Request Table Reservation</button>
+      </div>
     </div>
   </section>
 
   <!-- Interactive Menu Section -->
   <section class="section" id="menu">
-    <h2 class="section-title">Pub Favorites & Daily Specials</h2>
-    <p class="section-sub">Freshly prepared carry-out and dine-in pub classics.</p>
+    <h2 class="section-title">Pub Favorites & Carry-Out Specials</h2>
+    <p class="section-sub">Freshly prepared pub classics available for dine-in or carry-out[cite: 1].</p>
 
     <div class="menu-tabs">
       <button class="tab-btn active" onclick="showCategory('pub-grub')">🍔 Pub Grub</button>
@@ -224,10 +261,29 @@
       <div class="menu-item">
         <div>
           <h4>Weekend Carry-Out Combo</h4>
-          <p>Deluxe Burger + Fries + Pint/Beverage combo deal.</p>
+          <p>Deluxe Burger + Fries + Beverage combo deal.</p>
         </div>
         <div class="price">$14.99</div>
       </div>
+    </div>
+  </section>
+
+  <!-- Quick Info / FAQ Section -->
+  <section class="section">
+    <h2 class="section-title">Visitor Info & FAQs</h2>
+    <p class="section-sub">Everything you need to know before heading out.</p>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <span>📍 Where are you located?</span>
+      <div class="faq-ans">We are located right in the heart of Jackson at 308 W Michigan Ave, Jackson, MI. Give us a call at (517) 782-3414!</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <span>🍔 Do you offer carry-out ordering?</span>
+      <div class="faq-ans">Yes! Carry-out ordering is available daily[cite: 1]. Just call ahead at (517) 782-3414 to place your order for pickup.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <span>🎸 What kind of live entertainment do you host?</span>
+      <div class="faq-ans">We feature dinner, drinks, and a show nearly every weekend[cite: 1] including live bands, stand-up comedians, ladies night entertainers, and burlesque shows[cite: 1]!</div>
     </div>
   </section>
 
@@ -238,6 +294,11 @@
       
       document.getElementById(catId).style.display = 'grid';
       event.target.classList.add('active');
+    }
+
+    function toggleFaq(el) {
+      const ans = el.querySelector('.faq-ans');
+      ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
     }
   </script>
 </body>
